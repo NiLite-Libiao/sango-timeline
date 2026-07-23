@@ -30,7 +30,7 @@ export function InkBackground() {
       <div
         className="absolute inset-0"
         style={{
-          backgroundImage: 'url(/image/map.webp)',
+          backgroundImage: `url(${import.meta.env.BASE_URL}image/map.webp)`,
           backgroundSize: 'cover',
           backgroundPosition: 'center',
           backgroundRepeat: 'no-repeat',
