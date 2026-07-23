@@ -4,7 +4,7 @@
 
 一个基于《三国演义》的交互式时间线网页——230+ 条事件、120+ 位人物，从黄巾起义到天下归晋，用现代白话讲完这段百年风云。
 
-**在线预览**：[https://nilitelibiao.github.io/sango-timeline/](https://nilitelibiao.github.io/sango-timeline/)
+**在线预览**：[https://nilite-libiao.github.io/sango-timeline/](https://nilite-libiao.github.io/sango-timeline/)
 
 ---
 
