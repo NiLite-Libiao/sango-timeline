@@ -24,7 +24,7 @@ export function YearMarker({ year, major }: YearMarkerProps) {
             : 'flex items-center gap-2.5 rounded-full border border-ink-600/60 bg-ink-900 px-4 py-1.5'
         }
       >
-        <span className={major ? 'font-display text-2xl text-cinnabar-400' : 'font-display text-lg text-paper'}>
+        <span className={major ? 'font-body text-2xl font-medium text-cinnabar-400' : 'font-body text-lg text-paper'}>
           {year}
         </span>
         <span className="h-3 w-px bg-ink-600" />
