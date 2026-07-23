@@ -4,7 +4,6 @@ import { getCharacter } from '../../data/characters'
 import { EVENT_MAP } from '../../data/events'
 import { FACTIONS, WARLORD_NAMES, getFactionColor, ERA_NAMES } from '../../data/factions'
 import { SealStamp } from '../ui/SealStamp'
-import { cn } from '../../utils/cn'
 
 const TYPE_LABEL: Record<string, string> = {
   battle: '战', politics: '政', diplomacy: '交', death: '殁', founding: '立', strategy: '谋',
@@ -163,7 +162,7 @@ export function CharacterModal({ characterId, onClose }: CharacterModalProps) {
                           >
                             {TYPE_LABEL[e.type]}
                           </span>
-                          <h4 className={cn('font-display text-paper', e.significance === 3 ? 'text-base' : 'text-sm')}>
+                          <h4 className="font-display text-base text-paper">
                             {e.title}
                           </h4>
                         </div>

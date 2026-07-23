@@ -5,7 +5,6 @@ import { getCharacter } from '../../data/characters'
 import { EVENT_MAP } from '../../data/events'
 import { FACTIONS, WARLORD_NAMES, getFactionColor, ERA_NAMES } from '../../data/factions'
 import { SealStamp } from '../ui/SealStamp'
-import { cn } from '../../utils/cn'
 
 const TYPE_LABEL: Record<string, string> = {
   battle: '战', politics: '政', diplomacy: '交', death: '殁', founding: '立', strategy: '谋',
@@ -173,7 +172,7 @@ export function CharacterDetail() {
                   >
                     {TYPE_LABEL[e.type]}
                   </span>
-                  <h3 className={cn('font-display text-paper', e.significance === 3 ? 'text-lg' : 'text-base')}>
+                  <h3 className="font-display text-base text-paper">
                     {e.title}
                   </h3>
                 </div>
