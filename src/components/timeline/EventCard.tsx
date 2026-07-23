@@ -25,7 +25,6 @@ interface EventCardProps {
 /** 事件卡片 */
 export function EventCard({ event, onSelect, onOpenCharacter, align = 'center', compact }: EventCardProps) {
   const color = getFactionColor(event.faction, event.warlord)
-  const isMajor = event.significance >= 2
   const isTurning = event.significance === 3
 
   return (
@@ -65,10 +64,7 @@ export function EventCard({ event, onSelect, onOpenCharacter, align = 'center', 
         <div className={cn('min-w-0 flex-1', align === 'left' && 'text-right')}>
           <div className={cn('flex items-baseline gap-2 flex-wrap', align === 'left' && 'flex-row-reverse')}>
             <h3
-              className={cn(
-                'font-display leading-snug text-paper transition-colors duration-300 group-hover:text-cinnabar-400',
-                isTurning ? 'text-xl' : isMajor ? 'text-lg' : 'text-base'
-              )}
+              className="font-display text-lg leading-snug text-paper transition-colors duration-300 group-hover:text-cinnabar-400"
             >
               {event.title}
             </h3>

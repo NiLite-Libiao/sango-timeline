@@ -41,17 +41,19 @@ export function EventDetail({ event, onClose, onOpen, onOpenCharacter }: EventDe
             animate={{ x: 0 }}
             exit={{ x: '100%' }}
             transition={{ type: 'spring', damping: 30, stiffness: 300 }}
-            className="fixed right-0 top-0 z-50 h-full w-full max-w-md overflow-y-auto border-l border-ink-700/50 bg-ink-900/95 backdrop-blur-xl"
+            className="fixed right-0 top-0 z-50 h-full w-full max-w-md border-l border-ink-700/50 bg-ink-900/95 backdrop-blur-xl"
           >
-            <div className="relative p-6 sm:p-8">
-              {/* 关闭 */}
-              <button
-                onClick={onClose}
-                className="absolute right-4 top-4 flex h-9 w-9 items-center justify-center rounded-full border border-ink-600/60 text-ink-300 transition-colors hover:border-cinnabar-500/60 hover:text-cinnabar-400"
-                aria-label="关闭"
-              >
-                ✕
-              </button>
+            {/* 关闭按钮：固定在右上角，不随内容滚动 */}
+            <button
+              onClick={onClose}
+              className="absolute right-4 top-4 z-10 flex h-9 w-9 items-center justify-center rounded-full border border-ink-600/60 bg-ink-900/90 text-ink-300 transition-colors hover:border-cinnabar-500/60 hover:text-cinnabar-400"
+              aria-label="关闭"
+            >
+              ✕
+            </button>
+
+            {/* 可滚动内容区 */}
+            <div className="h-full overflow-y-auto p-6 sm:p-8">
 
               {/* 印章 */}
               <SealStamp
