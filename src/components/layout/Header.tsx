@@ -18,7 +18,7 @@ export function Header() {
       <div className="mx-auto flex h-16 max-w-6xl items-center justify-between px-4 sm:px-6">
         <NavLink to="/" className="flex items-center gap-3 group">
           <SealStamp text="汉" size="sm" className="transition-transform duration-300 group-hover:rotate-[-6deg]" />
-          <span className="font-display text-2xl text-paper tracking-[0.3em] group-hover:text-cinnabar-400 transition-colors duration-300">
+          <span className="font-display text-xl sm:text-2xl text-paper tracking-[0.15em] sm:tracking-[0.3em] group-hover:text-cinnabar-400 transition-colors duration-300">
             三国·演义
           </span>
         </NavLink>

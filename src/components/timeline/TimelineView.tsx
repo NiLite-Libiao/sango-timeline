@@ -37,7 +37,7 @@ function Opening() {
         initial={{ opacity: 0, scale: 0.92, filter: 'blur(8px)' }}
         animate={{ opacity: 1, scale: 1, filter: 'blur(0px)' }}
         transition={{ delay: 0.35, duration: 1, ease: [0.22, 1, 0.36, 1] }}
-        className="mt-6 font-display text-7xl sm:text-8xl md:text-9xl text-paper tracking-[0.15em]"
+        className="mt-6 font-display text-5xl sm:text-7xl md:text-8xl lg:text-9xl text-paper tracking-[0.1em] sm:tracking-[0.15em]"
         style={{ textShadow: '0 0 60px rgba(194,58,43,0.25)' }}
       >
         三国<span className="text-cinnabar-500">·</span>演义
@@ -202,16 +202,22 @@ export function TimelineView() {
               <div className="py-6">
                 <YearMarker year={year} major={!!eraId} />
               </div>
-              <div className="space-y-6">
+              {/* 移动端：单列流式 */}
+              <div className="space-y-3 sm:hidden">
+                {events.map((e) => (
+                  <EventCard key={e.id} event={e} onSelect={setSelected} onOpenCharacter={setSelectedCharacter} align="right" />
+                ))}
+              </div>
+
+              {/* 桌面端：左右交替 */}
+              <div className="hidden space-y-6 sm:block">
                 {events.map((e, ei) => (
                   <div
                     key={e.id}
-                    className={cn(
-                      'relative grid grid-cols-[1fr_auto_1fr] gap-4 sm:gap-6',
-                    )}
+                    className="relative grid grid-cols-[1fr_auto_1fr] gap-6"
                   >
                     {/* 左列 */}
-                    <div className={cn('flex', ei % 2 === 0 ? 'justify-end' : 'invisible hidden sm:flex')}>
+                    <div className={cn('flex', ei % 2 === 0 ? 'justify-end' : 'invisible')}>
                       {ei % 2 === 0 && <EventCard event={e} onSelect={setSelected} onOpenCharacter={setSelectedCharacter} align="left" />}
                     </div>
                     {/* 中央节点 */}
@@ -226,7 +232,7 @@ export function TimelineView() {
                       />
                     </div>
                     {/* 右列 */}
-                    <div className={cn('flex', ei % 2 === 1 ? '' : 'invisible hidden sm:flex')}>
+                    <div className={cn('flex', ei % 2 === 1 ? '' : 'invisible')}>
                       {ei % 2 === 1 && <EventCard event={e} onSelect={setSelected} onOpenCharacter={setSelectedCharacter} align="right" />}
                     </div>
                   </div>
@@ -267,7 +273,7 @@ export function TimelineView() {
               {/* 移动端：全局顺序流式列表 */}
               <div className="space-y-3 md:hidden">
                 {yearEvents.map((e) => (
-                  <EventCard key={e.id} event={e} onSelect={setSelected} onOpenCharacter={setSelectedCharacter} compact />
+                  <EventCard key={e.id} event={e} onSelect={setSelected} onOpenCharacter={setSelectedCharacter} />
                 ))}
               </div>
 
