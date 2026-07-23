@@ -1,0 +1,124 @@
+@import "tailwindcss";
+
+@theme {
+  /* ===== 字体 ===== */
+  --font-display: "Ma Shan Zheng", "STKaiti", "KaiTi", cursive;
+  --font-body: "Noto Sans SC", "PingFang SC", "Microsoft YaHei", sans-serif;
+
+  /* ===== 墨色阶 ===== */
+  --color-ink-50: #f7f3ec;
+  --color-ink-100: #e8dfd2;
+  --color-ink-200: #d4c8b6;
+  --color-ink-300: #b0a28e;
+  --color-ink-400: #8a7d6a;
+  --color-ink-500: #63594c;
+  --color-ink-600: #4a4238;
+  --color-ink-700: #332d26;
+  --color-ink-800: #2d2720;
+  --color-ink-900: #221d16;
+  --color-ink-950: #191510;
+
+  /* ===== 势力色 ===== */
+  --color-wei-300: #e0918d;
+  --color-wei-400: #d1706c;
+  --color-wei-500: #c25450;
+  --color-wei-600: #9c4340;
+  --color-wei-700: #7a3532;
+
+  --color-shu-300: #7cc4b5;
+  --color-shu-400: #57ab9b;
+  --color-shu-500: #3d9b8b;
+  --color-shu-600: #317c70;
+  --color-shu-700: #276158;
+
+  --color-wu-300: #8db8dd;
+  --color-wu-400: #6a9cc9;
+  --color-wu-500: #4a7fb5;
+  --color-wu-600: #3a6592;
+  --color-wu-700: #2d4e71;
+
+  /* 群雄色 */
+  --color-qx-dong: #8b6ba3;   /* 董卓·灰紫 */
+  --color-qx-yuan: #c9a043;   /* 袁绍·金 */
+  --color-qx-lv: #c4586e;     /* 吕布·绯 */
+  --color-qx-misc: #7d8a6e;   /* 其他群雄·苔 */
+
+  /* 汉室 */
+  --color-han-400: #c4a265;
+  --color-han-500: #a8864d;
+  --color-han-600: #8a6d3f;
+
+  /* ===== 宣纸 & 朱砂 ===== */
+  --color-paper: #f0e6d3;
+  --color-paper-dim: #e2d5be;
+  --color-cinnabar-400: #d94f3d;
+  --color-cinnabar-500: #c23a2b;
+  --color-cinnabar-600: #9e2f23;
+
+  /* ===== 动画 ===== */
+  --animate-ink-fade: ink-fade 0.8s ease-out both;
+  --animate-seal-stamp: seal-stamp 0.4s cubic-bezier(0.34, 1.56, 0.64, 1) both;
+  --animate-float-slow: float-slow 12s ease-in-out infinite;
+
+  @keyframes ink-fade {
+    from { opacity: 0; filter: blur(6px); transform: translateY(12px); }
+    to { opacity: 1; filter: blur(0); transform: translateY(0); }
+  }
+  @keyframes seal-stamp {
+    from { opacity: 0; transform: scale(1.6) rotate(-8deg); }
+    to { opacity: 1; transform: scale(1) rotate(-3deg); }
+  }
+  @keyframes float-slow {
+    0%, 100% { transform: translateY(0) translateX(0); }
+    33% { transform: translateY(-18px) translateX(6px); }
+    66% { transform: translateY(8px) translateX(-4px); }
+  }
+}
+
+/* ===== 基础样式 ===== */
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: var(--font-body);
+  background-color: var(--color-ink-950);
+  color: var(--color-ink-100);
+  overflow-x: hidden;
+}
+
+::selection {
+  background: var(--color-cinnabar-500);
+  color: var(--color-paper);
+}
+
+/* 滚动条 - 墨色细条 */
+::-webkit-scrollbar {
+  width: 6px;
+}
+::-webkit-scrollbar-track {
+  background: var(--color-ink-950);
+}
+::-webkit-scrollbar-thumb {
+  background: var(--color-ink-600);
+  border-radius: 3px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: var(--color-ink-400);
+}
+
+/* ===== 工具类 ===== */
+@utility text-vertical {
+  writing-mode: vertical-rl;
+  text-orientation: upright;
+}
+
+@utility ink-card {
+  background: linear-gradient(145deg, rgba(240, 230, 211, 0.08), rgba(240, 230, 211, 0.03));
+  border: 1px solid rgba(240, 230, 211, 0.12);
+  backdrop-filter: blur(2px);
+}
+
+@utility paper-texture {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100' height='100'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100' height='100' filter='url(%23n)' opacity='0.03'/%3E%3C/svg%3E");
+}
